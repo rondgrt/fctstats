@@ -5,15 +5,4 @@ rdg_soccer_hellopage:
 rdg_soccer_homepage:
     pattern:  /
     defaults: { _controller: RdgSoccerBundle:Default:home }
-    
-rdg_test_pdf:
-    pattern:  /testpdf
-    defaults: { _controller: RdgSoccerBundle:Pdf:test }
-    
-rdg_refresh_pdf:
-    pattern:  /testpdf/refresh
-    defaults: { _controller: RdgSoccerBundle:Pdf:refresh }
-    
-rdg_tcpdf_pdf:
-    pattern:  /tcpdf
-    defaults: { _controller: RdgSoccerBundle:Pdf:tcpdf }    
+       
