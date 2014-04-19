@@ -1,0 +1,7 @@
+{% extends 'RdgSoccerBundle::layout.html.twig' %} 
+
+{% block main %}
+  {% for game in games %}
+      <p>{{ game.HomeTeam }} - {{ game.AwayTeam }} {{ game.fthg }} - {{ game.ftag }}</p>
+  {% endfor %}
+{% endblock %}
