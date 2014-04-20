@@ -13,13 +13,13 @@ class DefaultController extends Controller
     
     public function homeAction()
     {
-        $repository = $this->getDoctrine()
-            ->getRepository('RdgSoccerBundle:Soccergame');
-        //$games = $repository->findAll();
-        $games = $repository->findBy(
-                array('hometeam' => 'Feyenoord')
-        );
+        $repository = $this->getDoctrine()->getRepository('RdgSoccerBundle:Land');
+        $landen = $repository->findAll();
+//        $games = $repository->findBy(
+//                array('hometeam' => 'Feyenoord')
+//        );
         
-        return $this->render('RdgSoccerBundle:Default:home.html.twig', array('games' => $games));
+        return $this->render('RdgSoccerBundle:Default:home.html.twig', array('landen' => $landen));
+        //return $this->render('RdgSoccerBundle:Default:home.html.twig');
     }
 }

@@ -1,7 +1,8 @@
 {% extends 'RdgSoccerBundle::layout.html.twig' %} 
 
 {% block main %}
-  {% for game in games %}
-      <p>{{ game.HomeTeam }} - {{ game.AwayTeam }} {{ game.fthg }} - {{ game.ftag }}</p>
-  {% endfor %}
+    <p>Nieuwe FC Twente statistieken site</p>
+    {% for land in landen %}
+        <p>{{ land.land }}</p>
+    {% endfor %}
 {% endblock %}

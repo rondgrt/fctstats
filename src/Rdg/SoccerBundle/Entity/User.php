@@ -1,4 +1,6 @@
 <?php
+// src/Acme/UserBundle/Entity/User.php
+
 namespace Rdg\SoccerBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
@@ -21,15 +23,5 @@ class User extends BaseUser
     {
         parent::__construct();
         // your own logic
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 }
