@@ -1,0 +1,49 @@
+{% extends 'RdgSoccerBundle::layout_1kol.html.twig' %} 
+
+{% block main %}
+    <h1>Speler list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Achternaam</th>
+                <th>Voorvoegsel</th>
+                <th>Voornaam</th>
+                <th>Fctwentesinds</th>
+                <th>Vorigeclubs</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('cms_speler__show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.achternaam }}</td>
+                <td>{{ entity.voorvoegsel }}</td>
+                <td>{{ entity.voornaam }}</td>
+                <td>{{ entity.fctwenteSinds }}</td>
+                <td>{{ entity.vorigeClubs }}</td>
+                <td>
+                <ul class="no-bullets">
+                    <li>
+                        <a href="{{ path('cms_speler__show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('cms_speler__edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul class="no-bullets">
+        <li>
+            <a href="{{ path('cms_speler__new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %} 
+ 
+  {% block body %}
+  <div class="row">
+    
+    <!-- Main Content -->
+    <div class="large-12 columns" role="content">
+        {% block main %}
+        {% endblock %}
+    </div>
+ 
+    <!-- End Main Content -->
+  </div>
+ 
+  <!-- End Main Content and Sidebar -->
+  {% endblock %}
+    
+  {% block javascripts %}
+        {{ parent() }}
+  {% endblock %}
+  

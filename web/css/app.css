@@ -16,3 +16,14 @@ html, body {
 
 textarea { height: auto; }
 
+button, .button {
+    background-color: #ff0000;
+}
+
+.no-bullets {
+    list-style-type: none;
+}
+
+ul {
+    margin-left: 0;
+}

@@ -6,3 +6,26 @@ rdg_soccer_homepage:
     pattern:  /
     defaults: { _controller: RdgSoccerBundle:Default:home }
        
+cms_speler_:
+    pattern:  /cms/speler/index
+    defaults: { _controller: RdgSoccerBundle:Speler:index }      
+    
+cms_speler__show:
+    pattern:  /cms/speler/show/{id}
+    defaults: { _controller: RdgSoccerBundle:Speler:show }     
+    
+cms_speler__edit:
+    pattern:  /cms/speler/edit/{id}
+    defaults: { _controller: RdgSoccerBundle:Speler:edit }
+    
+cms_speler__new:
+    pattern:  /cms/speler/new
+    defaults: { _controller: RdgSoccerBundle:Speler:new }
+    
+cms_speler__delete:
+    pattern:  /cms/speler/delete/{id}
+    defaults: { _controller: RdgSoccerBundle:Speler:delete }      
+    
+cms_speler__update:
+    pattern:  /cms/speler/update/{id}
+    defaults: { _controller: RdgSoccerBundle:Speler:update }    
