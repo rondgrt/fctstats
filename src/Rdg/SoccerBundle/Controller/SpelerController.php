@@ -29,8 +29,11 @@ class SpelerController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+        //$entities = $em->getRepository('RdgSoccerBundle:Speler')->findAll();
+        //$entities->getLandId()->getName();
+        
         $entities = $em->getRepository('RdgSoccerBundle:Speler')->findAll();
-
+        
         return array(
             'entities' => $entities,
         );
@@ -111,6 +114,7 @@ class SpelerController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('RdgSoccerBundle:Speler')->find($id);
+        //$entity->getLandId()->getLand();
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Speler entity.');
@@ -136,6 +140,7 @@ class SpelerController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('RdgSoccerBundle:Speler')->find($id);
+        //$entity->getLandId()->getLand();
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Speler entity.');

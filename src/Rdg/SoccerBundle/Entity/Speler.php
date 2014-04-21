@@ -76,16 +76,16 @@ class Speler
     private $clubNaTwente;
 
     /**
-     * @var integer
      *
-     * @ORM\Column(name="clubs_id", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="ClubId")
+     * @ORM\JoinColumn(name="clubs_id", referencedColumnName="id")
      */
     private $clubsId;
 
     /**
-     * @var integer
      *
-     * @ORM\Column(name="land_id", type="bigint", nullable=true)
+     * @ORM\ManyToOne(targetEntity="Land")
+     * @ORM\JoinColumn(name="land_id", referencedColumnName="id")
      */
     private $landId;
 
