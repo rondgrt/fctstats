@@ -1,0 +1,56 @@
+{% extends 'RdgSoccerBundle::layout_1kol.html.twig' %} 
+
+{% block main %}
+    <h3>Scheidsrechter {{ entity.voornaam }} {{ entity.achternaam }}</h3>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Achternaam</th>
+                <td>{{ entity.achternaam }}</td>
+            </tr>
+            <tr>
+                <th>Voornaam</th>
+                <td>{{ entity.voornaam }}</td>
+            </tr>
+            <tr>
+                <th>Geboorteplaats</th>
+                <td>{{ entity.geboorteplaats }}</td>
+            </tr>
+            <tr>
+                <th>Geboortelandid</th>
+                <td>{{ entity.geboortelandId }}</td>
+            </tr>
+            <tr>
+                <th>Geboortedag</th>
+                <td>{{ entity.geboortedag }}</td>
+            </tr>
+            <tr>
+                <th>Geboortemaand</th>
+                <td>{{ entity.geboortemaand }}</td>
+            </tr>
+            <tr>
+                <th>Geboortejaar</th>
+                <td>{{ entity.geboortejaar }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('cms_scheidsrechters_') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('cms_scheidsrechters__edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

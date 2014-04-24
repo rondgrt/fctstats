@@ -2,7 +2,7 @@
 parameters:
     database_driver: pdo_mysql
     database_host: 127.0.0.1
-    database_port: 
+    database_port: null
     database_name: fctstats
     database_user: fct
     database_password: stats

@@ -1,15 +1,15 @@
-{% extends '::base.html.twig' %}
+{% extends 'RdgSoccerBundle::layout_1kol.html.twig' %} 
 
-{% block body -%}
+{% block main %}
     <h1>Speler creation</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('cms_speler_') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    <ul class="record_actions">
+        <li class="no-bullets">
+            <a href="{{ path('cms_speler_') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
 {% endblock %}

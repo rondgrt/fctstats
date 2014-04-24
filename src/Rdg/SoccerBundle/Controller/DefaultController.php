@@ -3,6 +3,8 @@
 namespace Rdg\SoccerBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -11,15 +13,31 @@ class DefaultController extends Controller
         return $this->render('RdgSoccerBundle:Default:index.html.twig', array('name' => $name));
     }
     
-    public function homeAction()
+    public function homeAction(Request $request)
     {
-        $repository = $this->getDoctrine()->getRepository('RdgSoccerBundle:Speler');
-        $spelers = $repository->findBy(array(),array('achternaam'=>'ASC'));
-//        $games = $repository->findBy(
-//                array('hometeam' => 'Feyenoord')
-//        );
+        $repository = $this->getDoctrine()->getRepository('RdgSoccerBundle:ClubId');
+        $clubs = $repository->findAll();
         
-        return $this->render('RdgSoccerBundle:Default:home.html.twig', array('spelers' => $spelers));
+        $h2hForm = $this->createFormBuilder($clubs)
+                ->add('clubnaam', 'entity', array(
+                    'class' => 'RdgSoccerBundle:ClubId',
+                    'query_builder' => function(EntityRepository $er) {
+                        return $er->createQueryBuilder('c')
+                                ->orderBy('c.clubnaam', 'ASC');
+                    }
+                ))
+                ->add('Bekijk head2head', 'submit')    
+                ->getForm();
+        
+        $h2hForm->handleRequest($request);        
+                
+        if ($h2hForm->isValid()) {
+            $team = $h2hForm['clubnaam']->getData();
+            
+            return $this->redirect($this->generateUrl('stats_head2head__show', array('team' => $team)));
+        }        
+                
+        return $this->render('RdgSoccerBundle:Default:home.html.twig', array('h2hForm' => $h2hForm->createView()));
         //return $this->render('RdgSoccerBundle:Default:home.html.twig');
     }
 }

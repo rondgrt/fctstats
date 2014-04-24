@@ -22,10 +22,74 @@ cms_speler__new:
     pattern:  /cms/speler/new
     defaults: { _controller: RdgSoccerBundle:Speler:new }
     
+cms_speler__create:
+    pattern:  /cms/speler/create
+    defaults: { _controller: RdgSoccerBundle:Speler:create }    
+    
 cms_speler__delete:
     pattern:  /cms/speler/delete/{id}
     defaults: { _controller: RdgSoccerBundle:Speler:delete }      
     
 cms_speler__update:
     pattern:  /cms/speler/update/{id}
-    defaults: { _controller: RdgSoccerBundle:Speler:update }    
+    defaults: { _controller: RdgSoccerBundle:Speler:update }
+    
+cms_scheidsrechters_:
+    pattern:  /cms/scheidsrechters/index
+    defaults: { _controller: RdgSoccerBundle:Scheidsrechter:index }
+    
+cms_scheidsrechters__show:
+    pattern:  /cms/scheidsrechters/show/{id}
+    defaults: { _controller: RdgSoccerBundle:Scheidsrechter:show }     
+    
+cms_scheidsrechters__edit:
+    pattern:  /cms/scheidsrechters/edit/{id}
+    defaults: { _controller: RdgSoccerBundle:Scheidsrechter:edit }
+    
+cms_scheidsrechters__new:
+    pattern:  /cms/scheidsrechters/new
+    defaults: { _controller: RdgSoccerBundle:Scheidsrechter:new }
+    
+cms_scheidsrechters__create:
+    pattern:  /cms/scheidsrechters/create
+    defaults: { _controller: RdgSoccerBundle:Scheidsrechter:create } 
+    
+cms_scheidsrechters__delete:
+    pattern:  /cms/scheidsrechters/delete/{id}
+    defaults: { _controller: RdgSoccerBundle:Scheidsrechter:delete }      
+    
+cms_scheidsrechters__update:
+    pattern:  /cms/scheidsrechters/update/{id}
+    defaults: { _controller: RdgSoccerBundle:Scheidsrechter:update }
+    
+cms_wedstrijdsoort_:
+    pattern:  /cms/wedstrijdsoort/index
+    defaults: { _controller: RdgSoccerBundle:WedstrijdSoort:index }
+    
+cms_wedstrijdsoort__show:
+    pattern:  /cms/wedstrijdsoort/show/{id}
+    defaults: { _controller: RdgSoccerBundle:WedstrijdSoort:show }     
+    
+cms_wedstrijdsoort__edit:
+    pattern:  /cms/wedstrijdsoort/edit/{id}
+    defaults: { _controller: RdgSoccerBundle:WedstrijdSoort:edit }
+    
+cms_wedstrijdsoort__new:
+    pattern:  /cms/wedstrijdsoort/new
+    defaults: { _controller: RdgSoccerBundle:WedstrijdSoort:new }
+    
+cms_wedstrijdsoort__create:
+    pattern:  /cms/wedstrijdsoort/create
+    defaults: { _controller: RdgSoccerBundle:WedstrijdSoort:create } 
+    
+cms_wedstrijdsoort__delete:
+    pattern:  /cms/wedstrijdsoort/delete/{id}
+    defaults: { _controller: RdgSoccerBundle:WedstrijdSoort:delete }      
+    
+cms_wedstrijdsoort__update:
+    pattern:  /cms/wedstrijdsoort/update/{id}
+    defaults: { _controller: RdgSoccerBundle:WedstrijdSoort:update }
+    
+stats_head2head__show:
+    pattern:  /stats/head2head/{team}
+    defaults: { _controller: RdgSoccerBundle:statistieken:head2head }      

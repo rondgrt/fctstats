@@ -1,0 +1,18 @@
+{% extends 'RdgSoccerBundle::layout_1kol.html.twig' %} 
+
+{% block main %}
+    <h3>Scheidsrechter wijzigen</h3>
+
+    {{ form(edit_form) }}
+
+    <div class="row">
+        <div class="large-9 columns" role="content">
+        <a href="{{ path('cms_scheidsrechters_') }}">
+            Back to the list
+        </a>
+           
+        </div>
+    </div>
+    
+    
+{% endblock %}

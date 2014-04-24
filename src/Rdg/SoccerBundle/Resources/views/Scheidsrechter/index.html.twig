@@ -1,0 +1,61 @@
+{% extends 'RdgSoccerBundle::layout_1kol.html.twig' %} 
+
+{% block main %}
+    <h3>Scheidsrechters</h3>
+
+    <table class="records_list table-autofilter">
+        <thead>
+            <tr>
+                <th class="filterable">Achternaam</th>
+                <th>Voornaam</th>
+                <th>Geboorteplaats</th>
+                <th>Geboortelandid</th>
+                <th>Geboortedag</th>
+                <th>Geboortemaand</th>
+                <th>Geboortejaar</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <th><input name="filter" size="10" onkeyup="Table.filter(this,this)" data-cip-id="cIPJQ342845641"></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('cms_scheidsrechters__show', { 'id': entity.id }) }}">{{ entity.achternaam }}</a></td>
+                <td>{{ entity.voornaam }}</td>
+                <td>{{ entity.geboorteplaats }}</td>
+                <td>{{ entity.geboortelandId }}</td>
+                <td>{{ entity.geboortedag }}</td>
+                <td>{{ entity.geboortemaand }}</td>
+                <td>{{ entity.geboortejaar }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('cms_scheidsrechters__show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('cms_scheidsrechters__edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li class="no-bullets">
+            <a href="{{ path('cms_scheidsrechters__new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

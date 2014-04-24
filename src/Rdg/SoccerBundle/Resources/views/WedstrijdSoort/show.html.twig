@@ -1,0 +1,32 @@
+{% extends 'RdgSoccerBundle::layout_1kol.html.twig' %} 
+
+{% block main %}
+    <h3>WedstrijdSoort</h3>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Wedstrijdsoort</th>
+                <td>{{ entity.wedstrijdsoort }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('cms_wedstrijdsoort_') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('cms_wedstrijdsoort__edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
