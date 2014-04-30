@@ -92,4 +92,9 @@ class SeizoenId
     {
         return $this->id;
     }
+    
+    public function __toString()
+    { 
+        return $this->seizoen; 
+    }
 }

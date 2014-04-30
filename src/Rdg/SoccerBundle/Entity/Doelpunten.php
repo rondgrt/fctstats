@@ -15,14 +15,16 @@ class Doelpunten
     /**
      * @var integer
      *
-     * @ORM\Column(name="wedstrijd_id", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Wedstrijd", inversedBy="doelpunten")
+     * @ORM\JoinColumn(name="wedstrijd_id", referencedColumnName="id")
      */
     private $wedstrijdId;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="speler_id", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Speler")
+     * @ORM\JoinColumn(name="speler_id", referencedColumnName="id")
      */
     private $spelerId;
 

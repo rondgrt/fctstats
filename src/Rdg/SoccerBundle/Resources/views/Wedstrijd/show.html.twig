@@ -1,0 +1,90 @@
+{% extends 'RdgSoccerBundle::layout_1kol.html.twig' %} 
+
+{% block main %}
+    <h3>Wedstrijd</h3>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Wedstrijdsoortid</th>
+                <td>{{ entity.wedstrijdsoortId }}</td>
+            </tr>
+            <tr>
+                <th>Seizoenid</th>
+                <td>{{ entity.seizoenId }}</td>
+            </tr>
+            <tr>
+                <th>Scheidsrechterid</th>
+                <td>{{ entity.scheidsrechterId }}</td>
+            </tr>
+            <tr>
+                <th>Uitthuisid</th>
+                <td>{{ entity.uitThuisId }}</td>
+            </tr>
+            <tr>
+                <th>Clubsid</th>
+                <td>{{ entity.clubsId }}</td>
+            </tr>
+            <tr>
+                <th>Competitieronde</th>
+                <td>{{ entity.competitieronde }}</td>
+            </tr>
+            <tr>
+                <th>Ruststand</th>
+                <td>{{ entity.ruststand }}</td>
+            </tr>
+            <tr>
+                <th>Eindstand</th>
+                <td>{{ entity.eindstand }}</td>
+            </tr>
+            <tr>
+                <th>Bijzonderheden</th>
+                <td>{{ entity.bijzonderheden }}</td>
+            </tr>
+            <tr>
+                <th>Toeschouwers</th>
+                <td>{{ entity.toeschouwers }}</td>
+            </tr>
+            <tr>
+                <th>Speeldag</th>
+                <td>{{ entity.speeldag }}</td>
+            </tr>
+            <tr>
+                <th>Speelmaand</th>
+                <td>{{ entity.speelmaand }}</td>
+            </tr>
+            <tr>
+                <th>Speeljaar</th>
+                <td>{{ entity.speeljaar }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Doelpunten</h3>
+    {% for doelpunt in doelpunten %}
+        <p>
+            {{ doelpunt.minuut}}' {{ doelpunt.stand }} : {{ doelpunt.spelerId }}
+        </p>
+    {% endfor %}         
+            
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('cms_wedstrijd_') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('cms_wedstrijd__edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
+        
+       
+        
+{% endblock %}

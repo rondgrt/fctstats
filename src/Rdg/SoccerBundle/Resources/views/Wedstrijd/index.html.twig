@@ -1,0 +1,65 @@
+{% extends 'RdgSoccerBundle::layout_1kol.html.twig' %} 
+
+{% block main %}
+    <h1>Wedstrijd list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Wedstrijdsoortid</th>
+                <th>Seizoenid</th>
+                <th>Scheidsrechterid</th>
+                <th>Uitthuisid</th>
+                <th>Clubsid</th>
+                <th>Competitieronde</th>
+                <th>Ruststand</th>
+                <th>Eindstand</th>
+                <th>Bijzonderheden</th>
+                <th>Toeschouwers</th>
+                <th>Speeldag</th>
+                <th>Speelmaand</th>
+                <th>Speeljaar</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('cms_wedstrijd__show', { 'id': entity.id }) }}">{{ entity.wedstrijdsoortId }}</a></td>
+                <td>{{ entity.seizoenId }}</td>
+                <td>{{ entity.scheidsrechterId }}</td>
+                <td>{{ entity.uitThuisId }}</td>
+                <td>{{ entity.clubsId }}</td>
+                <td>{{ entity.competitieronde }}</td>
+                <td>{{ entity.ruststand }}</td>
+                <td>{{ entity.eindstand }}</td>
+                <td>{{ entity.bijzonderheden }}</td>
+                <td>{{ entity.toeschouwers }}</td>
+                <td>{{ entity.speeldag }}</td>
+                <td>{{ entity.speelmaand }}</td>
+                <td>{{ entity.speeljaar }}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('cms_wedstrijd__show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('cms_wedstrijd__edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('cms_wedstrijd__new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

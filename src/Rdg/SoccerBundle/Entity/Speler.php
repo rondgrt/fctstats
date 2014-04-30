@@ -572,4 +572,10 @@ class Speler
     {
         return $this->id;
     }
+    
+    public function __toString()
+    { 
+        $zijnnaam = $this->voornaam." ".$this->voorvoegsel." ".$this->achternaam;
+        return $zijnnaam; 
+    }
 }

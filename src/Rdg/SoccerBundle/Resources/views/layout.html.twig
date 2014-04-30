@@ -8,8 +8,10 @@
     <aside class="large-3 columns">
       {% block sidebar %}
             <div class="panel">
-                <h5>Categories</h5>
+                <h5>CMS</h5>
                   <ul class="side-nav">
+                    <li><a href="{{ path('cms_wedstrijd_') }}">Wedstrijden</a></li>
+                    <li>----------------------------</li>  
                     <li><a href="{{ path('cms_speler_') }}">Spelers</a></li>
                     <li><a href="{{ path('cms_scheidsrechters_') }}">Scheidsrechters</a></li>
                     <li><a href="{{ path('cms_wedstrijdsoort_') }}">Wedstrijdsoort</a></li>

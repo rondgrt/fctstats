@@ -3,6 +3,7 @@
 namespace Rdg\SoccerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Wedstrijd
@@ -15,14 +16,16 @@ class Wedstrijd
     /**
      * @var integer
      *
-     * @ORM\Column(name="wedstrijdsoort_id", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="WedstrijdSoort")
+     * @ORM\JoinColumn(name="wedstrijdsoort_id", referencedColumnName="id")
      */
     private $wedstrijdsoortId;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="seizoen_id", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="SeizoenId")
+     * @ORM\JoinColumn(name="seizoen_id", referencedColumnName="id")
      */
     private $seizoenId;
 
@@ -36,14 +39,16 @@ class Wedstrijd
     /**
      * @var integer
      *
-     * @ORM\Column(name="uit_thuis_id", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="UitThuis")
+     * @ORM\JoinColumn(name="uit_thuis_id", referencedColumnName="id")
      */
     private $uitThuisId;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="clubs_id", type="bigint", nullable=true)
+     * @ORM\ManyToOne(targetEntity="ClubId")
+     * @ORM\JoinColumn(name="clubs_id", referencedColumnName="id")
      */
     private $clubsId;
 
@@ -112,8 +117,18 @@ class Wedstrijd
      */
     private $id;
 
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="Doelpunten", mappedBy="wedstrijdId")
+     * @ORM\OrderBy({"stand" = "ASC"})
+     */
+    protected $doelpunten;
 
-
+    public function __construct()
+    {
+        $this->doelpunten = new ArrayCollection();
+    }
+    
     /**
      * Set wedstrijdsoortId
      *
@@ -421,5 +436,38 @@ class Wedstrijd
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Add doelpunten
+     *
+     * @param \Rdg\SoccerBundle\Entity\Doelpunten $doelpunten
+     * @return Wedstrijd
+     */
+    public function addDoelpunten(\Rdg\SoccerBundle\Entity\Doelpunten $doelpunten)
+    {
+        $this->doelpunten[] = $doelpunten;
+
+        return $this;
+    }
+
+    /**
+     * Remove doelpunten
+     *
+     * @param \Rdg\SoccerBundle\Entity\Doelpunten $doelpunten
+     */
+    public function removeDoelpunten(\Rdg\SoccerBundle\Entity\Doelpunten $doelpunten)
+    {
+        $this->doelpunten->removeElement($doelpunten);
+    }
+
+    /**
+     * Get doelpunten
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDoelpunten()
+    {
+        return $this->doelpunten;
     }
 }

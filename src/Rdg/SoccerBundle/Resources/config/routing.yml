@@ -89,7 +89,40 @@ cms_wedstrijdsoort__delete:
 cms_wedstrijdsoort__update:
     pattern:  /cms/wedstrijdsoort/update/{id}
     defaults: { _controller: RdgSoccerBundle:WedstrijdSoort:update }
+
+cms_wedstrijd_:
+    pattern:  /cms/wedstrijd/index
+    defaults: { _controller: RdgSoccerBundle:Wedstrijd:index }
+    
+cms_wedstrijd__show:
+    pattern:  /cms/wedstrijd/show/{id}
+    defaults: { _controller: RdgSoccerBundle:Wedstrijd:show }     
+    
+cms_wedstrijd__edit:
+    pattern:  /cms/wedstrijd/edit/{id}
+    defaults: { _controller: RdgSoccerBundle:Wedstrijd:edit }
+    
+cms_wedstrijd__new:
+    pattern:  /cms/wedstrijd/new
+    defaults: { _controller: RdgSoccerBundle:Wedstrijd:new }
+    
+cms_wedstrijd__create:
+    pattern:  /cms/wedstrijd/create
+    defaults: { _controller: RdgSoccerBundle:Wedstrijd:create } 
+    
+cms_wedstrijd__delete:
+    pattern:  /cms/wedstrijd/delete/{id}
+    defaults: { _controller: RdgSoccerBundle:Wedstrijd:delete }      
+    
+cms_wedstrijd__update:
+    pattern:  /cms/wedstrijd/update/{id}
+    defaults: { _controller: RdgSoccerBundle:Wedstrijd:update }    
     
 stats_head2head__show:
     pattern:  /stats/head2head/{team}
-    defaults: { _controller: RdgSoccerBundle:statistieken:head2head }      
+    defaults: { _controller: RdgSoccerBundle:statistieken:head2head }    
+    
+stats_wedstrijden-seizoen__show:
+    pattern:  /stats/wedstrijden/{seizoen}
+    defaults: { _controller: RdgSoccerBundle:statistieken:wedPerSeiz }
+    

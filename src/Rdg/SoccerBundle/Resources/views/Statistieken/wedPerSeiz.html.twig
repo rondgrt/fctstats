@@ -1,0 +1,29 @@
+{% extends 'RdgSoccerBundle::layout_1kol.html.twig' %} 
+
+{% block main %}
+    <h3>Wedstrijden seizoen {{ entities[0].seizoenId}}</h3>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Wedstrijdsoort</th>
+                <th>Datum</th>
+                <th>Wedstrijd</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('cms_wedstrijd__show', { 'id': entity.id }) }}">{{ entity.wedstrijdsoortId }}</a></td>
+                <td>{{ entity.speeldag }}-{{ entity.speelmaand }}-{{ entity.speeljaar }}</td>
+                {% if(entity.uitThuisId == 'thuis' ) %}
+                    <td>FC Twente - {{ entity.clubsId }} {{ entity.eindstand }} ({{ entity.ruststand }}) </td>
+                {% else %}    
+                    <td>{{ entity.clubsId }} - FC Twente {{ entity.eindstand }} ({{ entity.ruststand }}) </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}
+
